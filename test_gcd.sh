@@ -6,6 +6,9 @@ ans="/tmp/$$-ymisaki-ans"
 gcd="/tmp/$$-ymisaki-gcd"
 
 #0が入力されたとき
+echo "エラー：自然数を入力してください" > ${ans}
+./gcd.sh 0 4 > ${gcd} && exit 1
+diff ${ans} ${gcd} || exit 1
 
 #マイナスが含まれるとき
 
