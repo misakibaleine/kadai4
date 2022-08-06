@@ -5,6 +5,11 @@
 ans="/tmp/$$-ymisaki-ans"
 gcd="/tmp/$$-ymisaki-gcd"
 
+#正常確認
+echo "最大公約数は：5" > ${ans}
+./gcd.sh 65 70 ${gcd}
+diff ${ans} ${gcd}
+
 ##数字以外が入力されたとき
 #1つめが文字列
 echo "エラー：数字を入力してください" > ${ans}
