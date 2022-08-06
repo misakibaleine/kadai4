@@ -7,8 +7,8 @@ gcd="/tmp/$$-ymisaki-gcd"
 
 #正常確認
 echo "最大公約数は：5" > ${ans}
-./gcd.sh 65 70 >  ${gcd}
-diff ${ans} ${gcd}
+./gcd.sh 65 70 >  ${gcd} && exit 0
+diff ${ans} ${gcd} || exit 0
 
 ##数字以外が入力されたとき
 #1つめが文字列
@@ -59,6 +59,11 @@ diff ${ans} ${gcd} || exit 1
 #マイナスが含まれるとき
 echo "エラー：数値にマイナスが含まれています" > ${ans}
 ./gcd.sh -7 7 > ${gcd} && exit 1
+diff ${ans} ${gcd} || exit 1
+
+#小数点が入力されたとき
+echo "エラー：数字を入力してください" > ${ans}
+ ./gcd.sh 5.5 38 > ${gcd} && exit 1
 diff ${ans} ${gcd} || exit 1
 
 #後処理
