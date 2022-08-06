@@ -7,27 +7,27 @@ gcd="/tmp/$$-ymisaki-gcd"
 
 #正常確認
 echo "最大公約数は：5" > ${ans}
-./gcd.sh 65 70 >  ${gcd} && exit 0
-diff ${ans} ${gcd} || exit 0
+./gcd.sh 65 70 >  ${gcd}
+diff ${ans} ${gcd}
 
 ##数字以外が入力されたとき
 #1つめが文字列
-echo "エラー：数字を入力してください" > ${ans}
+echo "エラー：自然数を入力してください" > ${ans}
 ./gcd.sh aa 4 > ${gcd} && exit 1
 diff ${ans} ${gcd} || exit 1
 
 #2つめが文字列
-echo "エラー：数字を入力してください" > ${ans}
+echo "エラー：自然数を入力してください" > ${ans}
 ./gcd.sh 83 b > ${gcd} && exit 1
 diff ${ans} ${gcd} || exit 1
 
 #どちらも文字列
-echo "エラー：数字を入力してください" > ${ans}
+echo "エラー：自然数を入力してください" > ${ans}
 ./gcd.sh aaa bb > ${gcd} && exit 1
 diff ${ans} ${gcd} || exit 1
 
 #途中に文字列が含まれる
-echo "エラー：数字を入力してください" > ${ans}
+echo "エラー：自然数を入力してください" > ${ans}
 ./gcd.sh  6s 77  > ${gcd} && exit 1
 diff ${ans} ${gcd} || exit 1
 
@@ -62,7 +62,7 @@ echo "エラー：数値にマイナスが含まれています" > ${ans}
 diff ${ans} ${gcd} || exit 1
 
 #小数点が入力されたとき
-echo "エラー：数字を入力してください" > ${ans}
+echo "エラー：自然数を入力してください" > ${ans}
  ./gcd.sh 5.5 38 > ${gcd} && exit 1
 diff ${ans} ${gcd} || exit 1
 
