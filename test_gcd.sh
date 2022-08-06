@@ -56,7 +56,5 @@ echo "エラー：数値にマイナスが含まれています" > ${ans}
 ./gcd.sh -7 7 > ${gcd} && exit 1
 diff ${ans} ${gcd} || exit 1
 
-#入力が多い場合
-
 #後処理
 rm /tmp/$$-ymisaki-*
