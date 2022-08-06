@@ -5,6 +5,27 @@
 ans="/tmp/$$-ymisaki-ans"
 gcd="/tmp/$$-ymisaki-gcd"
 
+##数字以外が入力されたとき
+#1つめが文字列
+echo "エラー：数字を入力してください" > ${ans}
+./gcd.sh aa 4 > ${gcd} && exit 1
+diff ${ans} ${gcd} || exit 1
+
+#2つめが文字列
+echo "エラー：数字を入力してください" > ${ans}
+./gcd.sh 83 b > ${gcd} && exit 1
+diff ${ans} ${gcd} || exit 1
+
+#どちらも文字列
+echo "エラー：数字を入力してください" > ${ans}
+./gcd.sh aaa bb > ${gcd} && exit 1
+diff ${ans} ${gcd} || exit 1
+
+#途中に文字列が含まれる
+echo "エラー：数字を入力してください" > ${ans}
+./gcd.sh  6s 77  > ${gcd} && exit 1
+diff ${ans} ${gcd} || exit 1
+
 ##入力が少ない場合
 #0の場合
 echo "エラー：自然数を2つ入力してください" > ${ans}
@@ -34,8 +55,6 @@ diff ${ans} ${gcd} || exit 1
 echo "エラー：数値にマイナスが含まれています" > ${ans}
 ./gcd.sh -7 7 > ${gcd} && exit 1
 diff ${ans} ${gcd} || exit 1
-
-#文字列が含まれるとき
 
 #入力が多い場合
 
